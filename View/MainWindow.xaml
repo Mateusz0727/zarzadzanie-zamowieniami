@@ -1,0 +1,54 @@
+﻿<Window x:Class="Order.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"    
+        xmlns:local="clr-namespace:Order"
+        mc:Ignorable="d"
+
+        Title="Zarządzanie zamówieniami" ResizeMode="NoResize" Height="675" Width="1250"
+        WindowState="Normal" WindowStartupLocation="CenterScreen" Icon="Assets/LOGO.png" 
+        
+         >
+
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition  />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="660"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0" Background="#FF202020" >
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="auto"/>
+                <RowDefinition  Height="50"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Height="80" Width="100" Margin="15,20,25,40" Grid.RowSpan="2">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/LOGO.png"></ImageBrush>
+                </Grid.Background>
+            </Grid>
+
+
+
+            <Grid Style="{DynamicResource MenuGridStyle}" Margin=" 0 0 2 0" Grid.Row="2">
+                <Button   Height="50" Margin="10 0 0 0"  x:Name="CreatingOrderButton" Style="{DynamicResource MenuButtonStyle}"  Click="CreatingOrderButton_Click" >ZAMÓWIENIA</Button>
+            </Grid>
+            <Grid Style="{DynamicResource MenuGridStyle}" Margin=" 0 0 2 0" Grid.Row="3">
+                <Button Grid.Row="3" Height="50" Margin="10 0 0 0" Padding="10"  x:Name="DatabaseEditButton" Style="{DynamicResource MenuButtonStyle}" Content="BAZA"  Click="DatabaseEditButton_Click"  Width="140" />
+            </Grid>
+
+        </Grid>
+        <Frame Grid.Column="1" NavigationUIVisibility="Hidden" Name="MainFrame" Grid.ColumnSpan="2"/>
+    </Grid>
+
+    </Window>

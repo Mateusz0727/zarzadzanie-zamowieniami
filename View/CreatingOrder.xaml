@@ -1,0 +1,168 @@
+﻿<Page x:Class="Order.CreatingOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Order"
+      mc:Ignorable="d" 
+      d:DesignHeight="660" d:DesignWidth="1050"
+      Title="CreatingOrder">
+
+    <Grid Background="#FF353535">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="auto"  />
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="46,216,23,50" Grid.Column="1" >
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/bird.png"/>
+                </Grid.Background>
+            </Grid>
+            <Grid Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="auto"  />
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Style="{DynamicResource LabelStyle}"  >Nazwa:</Label>
+                        <ComboBox Grid.Column="2" IsEditable="True" IsTextSearchEnabled="True" Style="{DynamicResource theComboBox}" x:Name="ProductComboBox"  Background="{x:Null}" BorderBrush="Black" >
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                        <Button Grid.Column="4" Style="{DynamicResource RoundCorner}" Content="Dodaj produkt do listy" x:Name="AddProductButton" Height="30" Width="200" Click="Button_Click" />
+                    </Grid>
+
+                    <DataGrid Grid.Row="3" x:Name="ProductsTable" Style="{DynamicResource DataGridStyle}"  AutoGenerateColumns="False"  >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="110" Header=" Nr. Katalogowy " Binding="{Binding CatalogNumber}" />
+                            <DataGridTextColumn Width="220" Header=" Nazwa " Binding="{Binding Name}"/>
+                            <DataGridTextColumn Width="70" Header=" Ilość " Binding="{Binding Quantity}" />
+                            <DataGridTextColumn Width="70" Header=" Model " Binding="{Binding Modell}" />
+                            <DataGridTextColumn  Header=" Cena " Binding="{Binding Price}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
+            <Grid  Background="#FF282828" Grid.Column="3">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <Grid Margin="5"  Grid.Row="1">
+                    <Label  Style="{DynamicResource LabelStyle}" Margin="20,10,0,10" Content="Klient:"></Label>
+
+                    <ComboBox  IsEditable="True"  IsTextSearchEnabled="True" Background="{x:Null}" Style="{DynamicResource theComboBox}" Margin="96,0,76,0" VerticalAlignment="Center"  Name="ClientComboBox"  >
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel/>
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                    </ComboBox>
+                </Grid>
+                <Grid Margin="30 0 0 0" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <ListBox  Name="PaymentMethod" Padding="10 0 10 0" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0" VerticalAlignment="Top">
+                            <TextBlock Style="{DynamicResource TextBlock}" Padding="3" Text="Forma płatnosci:"/>
+                            <ListBoxItem Style="{DynamicResource ListboxItem}" >
+                                <RadioButton IsChecked="true" Style="{DynamicResource RadioButton}" Name="TransferRadioButton" GroupName="Group1" Content="przelew" Margin="0,0,0,10" Height="16" HorizontalAlignment="Left"   VerticalAlignment="Top" FontSize="12" />
+                            </ListBoxItem>
+                            <ListBoxItem Style="{DynamicResource ListboxItem}">
+                                <RadioButton Style="{DynamicResource RadioButton}" Name="PrepaymentRadioButton" GroupName="Group1" Content="przedpłata" Margin="0,0,0,10" Height="16" HorizontalAlignment="Left"   VerticalAlignment="Top" FontSize="12" />
+                            </ListBoxItem>
+                            <ListBoxItem Style="{DynamicResource ListboxItem}">
+                                <RadioButton Style="{DynamicResource RadioButton}" Name="CashOnDeliveryRadioButton" GroupName="Group1" Content="pobranie" Margin="0,0,0,10" Height="16" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="12" />
+                            </ListBoxItem>
+                        </ListBox>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <ListBox Padding="10 0 10 0"  Name="OrderFulfillment"  SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0" >
+                            <TextBlock Style="{DynamicResource TextBlock}" Padding="3" Text="Realizacja zamówienia: "/>
+                            <ListBoxItem Style="{DynamicResource ListboxItem}">
+                                <RadioButton IsChecked="true" Style="{DynamicResource RadioButton}"  Margin="0,0,0,10" Name="ImplementationInFullRadioButton"  GroupName="Group2" Content="realizacja w całości" HorizontalAlignment="Left"   VerticalAlignment="Top" Height="16"   FontSize="12" />
+                            </ListBoxItem>
+                            <ListBoxItem Style="{DynamicResource ListboxItem}">
+                                <RadioButton Style="{DynamicResource RadioButton}"  Margin="0,0,0,10" Name="SendAvailableRadioButton"   GroupName="Group2" Content="wysłać dostępne" Height="16" HorizontalAlignment="Left"   VerticalAlignment="Top" FontSize="12" />
+                            </ListBoxItem>
+                        </ListBox>
+                    </Grid>
+                </Grid>
+                <Grid Margin="5" Grid.Row="3" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Style="{DynamicResource LabelStyle}"   Content="Adres dostawy" Margin="70,0,178,0" />
+                    <RichTextBox Grid.Row="2" Style="{DynamicResource RichTextBoxStyle}" x:Name="DeliveryAddress"   Height="70" Width="200"    />
+                </Grid>
+                <Grid Margin="5" Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Style="{DynamicResource LabelStyle}" Content="Numer zamówienia klienta" Margin="70,0,178,0" />
+                    <RichTextBox Grid.Row="2" Style="{DynamicResource RichTextBoxStyle}" x:Name="CustomersOrderNumber" Height="70" Width="200"  />
+
+
+                </Grid>
+                <Grid Margin="5" Grid.Row="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Style="{DynamicResource LabelStyle}" Content="Uwagi:"  Margin="70,0,178,0" Grid.RowSpan="2"   />
+                    <RichTextBox Grid.Row="2" Style="{DynamicResource RichTextBoxStyle}" x:Name="Comments"  Height="70" Width="200"  />
+
+
+                </Grid>
+                <Button Grid.Row="6" Height="30" Style="{DynamicResource RoundCorner}" x:Name="CreateOrederButton" HorizontalAlignment="Center" Margin="0,49,0,49"  Width="150" Click="CreateOrederButton_Click">Utwórz zamówienie</Button>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

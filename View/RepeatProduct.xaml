@@ -1,0 +1,38 @@
+﻿<Window x:Class="Order.RepeatProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Order"
+        mc:Ignorable="d"
+        Title="RepeatProduct" Height="200" Width="400">
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#FF353535"/>
+
+        </Grid.Background>
+        <TextBlock Style="{DynamicResource TextBlock}" Margin="3,107,35,37">Ten produkt znajduje się już na liscie. Chcesz go dodać jeszcze raz?</TextBlock>
+        <Button Style="{DynamicResource RoundCorner}" Width="50" Height="30" Margin="288,143,62,11" Click="Button_Click">Tak</Button>
+        <Button Style="{DynamicResource RoundCorner}" Width="50" Height="30" Margin="343,142,7,12">Nie</Button>
+        <StackPanel Margin="3,0,133,78">
+            <StackPanel VerticalAlignment="Top" >
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{DynamicResource LabelStyle}" Name="ProductNameLabel" Content="Nazwa produktu:"/>
+                    <Label Style="{DynamicResource LabelStyle}" Width="292" Name="NameSelectedProductLabel" Content=""/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{DynamicResource LabelStyle}" Name="ProductModell" Content="Model:"/>
+                    <Label Style="{DynamicResource LabelStyle}" Width="347" Name="ModellSelectedProductLabel" Content=""/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Style="{DynamicResource LabelStyle}" Name="CatalogNumberLabel" Content="Numer Katalogowy:"/>
+                    <Label Style="{DynamicResource LabelStyle}" Width="278" Name="CatalogNumberSelectedProductLabel" Content=""/>
+                </StackPanel>
+            </StackPanel>            
+            <StackPanel Orientation="Horizontal">
+                <Label Style="{DynamicResource LabelStyle}" Name="ProductPrice" Content="Cena produktu (1szt.):"></Label>
+                <Label Style="{DynamicResource LabelStyle}" Width="270" Name="PriceSelectedProduct"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
