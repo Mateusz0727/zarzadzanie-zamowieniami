@@ -22,7 +22,6 @@
   <ItemGroup>
     <None Remove="123.png" />
     <None Remove="circlelogo.png" />
-    <None Remove="LOGO.ico" />
     <None Remove="LOGO.png" />
     <None Remove="Rems.png" />
     <None Remove="View\Assets\1234.png" />
@@ -44,9 +43,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="LOGO.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="View\Assets\1234.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -73,9 +69,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="bazadanych.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="bazadanych1.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -83,10 +76,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>
