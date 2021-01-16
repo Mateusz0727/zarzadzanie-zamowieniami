@@ -8,7 +8,7 @@
     <UserSecretsId>949c9ee5-0553-469a-aa89-b20e2eeded9e</UserSecretsId>
     <Platforms>AnyCPU;x64</Platforms>
     <AssemblyName>Zarządzanie zamówieniami</AssemblyName>
-    <ApplicationIcon>LOGO.ico</ApplicationIcon>
+    <ApplicationIcon></ApplicationIcon>
     <Configurations>Debug;Release;Zamóienie</Configurations>
     <Authors>M-Z</Authors>
   </PropertyGroup>
