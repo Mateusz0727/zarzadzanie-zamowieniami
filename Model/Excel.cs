@@ -101,11 +101,11 @@ namespace Order.Files
             WorkSheet.Cells[5, 3] = "Grupa rabatowa";
             WorkSheet.Cells[4, 8] = "Realizujący:";
             WorkSheet.Cells[6, 1] = "Firma";
-            WorkSheet.Cells[5, 8] = "REMS POLSKA";
-            WorkSheet.Cells[6, 8] = "Dąbrowa ul.Piaskowa 19";
-            WorkSheet.Cells[7, 8] = "62-070 Dopiewo";
-            WorkSheet.Cells[8, 8] = "tel. 61 654-09-00";
-            WorkSheet.Cells[9, 8] = "fax 61 654-09-05";
+            WorkSheet.Cells[5, 8] = "XXX POLSKA";
+            WorkSheet.Cells[6, 8] = "Rzeszów ul.miejska 3";
+            WorkSheet.Cells[7, 8] = "35-506 Rzeszów";
+            WorkSheet.Cells[8, 8] = "tel. 887 234 887";
+            WorkSheet.Cells[9, 8] = "fax ";
             WorkSheet.Cells[7, 1] = "Ulica";
             WorkSheet.Cells[8, 1] = "Kod";
             WorkSheet.Cells[8, 4] = "Miasto";
@@ -120,8 +120,8 @@ namespace Order.Files
 
             WorkSheet.Cells[15, 1] = "Adres dostawy:";
           
-            WorkSheet.Cells[14, 7] = "Przedst Handlowy Rems:";
-            WorkSheet.Cells[14, 10] = "Stanisław Zięba";
+            WorkSheet.Cells[14, 7] = "Przedst Handlowy :";
+            WorkSheet.Cells[14, 10] = "Mateusz Zięba";
             WorkSheet.Cells[16, 7] = "Realizacja zamówienia";
 
             WorkSheet.Cells[18, 1] = "l.p";
