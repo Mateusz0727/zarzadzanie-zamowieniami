@@ -145,16 +145,16 @@ namespace Order
             string modell = GetInfomationAboutSelectedProduct().modell;
             string catalogNumber = GetInfomationAboutSelectedProduct().catalogNumber;
             int price = GetInfomationAboutSelectedProduct().price;
-            int quanitity;
+            int quantity;
 
             DialogWindow dialogWindow = new DialogWindow(name, modell, catalogNumber, price);
 
             dialogWindow.ShowDialog();
 
-            quanitity = dialogWindow.Quantity;
-            if (quanitity != 0)
+            quantity = dialogWindow.Quantity;
+            if (quantity != 0)
             {
-                Products product = new Products.ProductToTable(catalogNumber, name, quanitity, modell, price);
+                Products product = new Products.ProductToTable(catalogNumber, name, quantity, modell, price);
 
                 ProductsTable.Items.Add(product);
             }
